@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ALB GAMES | Games, consoles e acessórios</title>
+<meta name="description" content="Nossa empresa tem como objetivo realizar sonhos, visando sempre sua diversão.">
+<meta name="theme-color" content="#E54E88">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+<style>
+:root{--bg:#0b0a12;--card:#16142a;--p:#E54E88;--c:#35e0ff;--t:#f3f1fa;--m:#a29fc0}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--p),var(--c));z-index:99}
+header{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:20px;padding:14px 5vw;background:rgba(11,10,18,.8);backdrop-filter:blur(12px);border-bottom:1px solid #ffffff14}
+.logo{font-weight:900;font-size:22px;letter-spacing:1px;cursor:pointer}.logo b{color:var(--p)}
+nav{margin-left:auto;display:flex;gap:6px}
+nav button{background:none;border:0;color:var(--m);font:600 14px inherit;padding:8px 14px;border-radius:99px;cursor:pointer;transition:.25s}
+nav button:hover{color:var(--t)}nav button.on{background:var(--p);color:#fff;box-shadow:0 0 20px #e54e8866}
+.wipe{position:fixed;inset:0;z-index:90;background:linear-gradient(135deg,var(--p),#6a3cff);transform:translateY(100%);pointer-events:none;display:grid;place-items:center;font-size:64px}
+.wipe.run{animation:wipe .8s cubic-bezier(.7,0,.3,1)}
+@keyframes wipe{0%{transform:translateY(100%)}45%,55%{transform:translateY(0)}100%{transform:translateY(-100%)}}
+.page{display:none}.page.on{display:block}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+/* hero */
+.hero{position:relative;height:78vh;min-height:420px;overflow:hidden}
+.sl{position:absolute;inset:0;opacity:0;transition:opacity 1s}.sl.on{opacity:1}
+.sl img{width:100%;height:120%;object-fit:cover;object-position:center;transform:scale(1.08);transition:transform 7s linear}.sl.on img{transform:scale(1.18)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--bg) 2%,#0b0a1200 55%),linear-gradient(90deg,#0b0a12cc,transparent 60%)}
+.cap{position:absolute;z-index:3;left:5vw;bottom:12%;max-width:560px}
+.cap small{color:var(--c);font-weight:700;letter-spacing:3px;text-transform:uppercase}
+.cap h1{font-size:clamp(34px,6vw,72px);line-height:1;margin:8px 0 18px;font-weight:900}
+.cap h1 span{background:linear-gradient(90deg,var(--p),var(--c));-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-block;background:var(--p);color:#fff;font-weight:700;border:0;padding:13px 26px;border-radius:99px;cursor:pointer;transition:.25s;font-size:15px}
+.btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 10px 30px #e54e8877}
+.btn.g{background:#ffffff14;margin-left:8px}
+.dots{position:absolute;z-index:3;right:5vw;bottom:12%;display:flex;gap:8px}
+.dots i{width:10px;height:10px;border-radius:99px;background:#ffffff55;cursor:pointer;transition:.3s}.dots i.on{width:34px;background:var(--p)}
+/* marquee */
+.mq{overflow:hidden;border-block:1px solid #ffffff14;padding:14px 0;background:#ffffff06}
+.mq div{display:flex;gap:48px;width:max-content;animation:mq 28s linear infinite;font-weight:800;letter-spacing:2px;color:var(--m)}
+.mq span:nth-child(3n){color:var(--p)}.mq:hover div{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+section{padding:70px 5vw}
+h2{font-size:clamp(26px,4vw,42px);font-weight:900;margin-bottom:8px}h2 em{font-style:normal;color:var(--p)}
+.sub{color:var(--m);margin-bottom:30px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.stat{background:var(--card);border:1px solid #ffffff12;border-radius:20px;padding:26px;text-align:center}
+.stat b{display:block;font-size:44px;background:linear-gradient(90deg,var(--p),var(--c));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{color:var(--m);font-size:14px}
+/* tabs + grid */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.tabs button{background:var(--card);border:1px solid #ffffff14;color:var(--m);font:600 14px inherit;padding:10px 18px;border-radius:99px;cursor:pointer;transition:.25s}
+.tabs button:hover{border-color:var(--p);color:var(--t)}
+.tabs button.on{background:var(--p);border-color:var(--p);color:#fff;transform:scale(1.06)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px}
+.card{position:relative;background:var(--card);border:1px solid #ffffff12;border-radius:20px;overflow:hidden;animation:up .6s both;transition:transform .2s,box-shadow .3s;transform:perspective(700px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
+.card:hover{box-shadow:0 20px 50px #e54e8844;border-color:var(--p)}
+@keyframes up{from{opacity:0;transform:translateY(40px) scale(.94)}}
+.card .im{aspect-ratio:1;background:#fff;display:grid;place-items:center;overflow:hidden}
+.card img{width:100%;height:100%;object-fit:contain;transition:transform .5s}.card:hover img{transform:scale(1.1) rotate(-2deg)}
+.card .bd{padding:16px}.card h3{font-size:15px;min-height:46px;line-height:1.3}
+.old{color:var(--m);text-decoration:line-through;font-size:13px;margin-top:8px}
+.pr{font-size:24px;font-weight:900;color:var(--c)}.pr small{display:block;font-size:12px;color:var(--m);font-weight:400}
+.off{position:absolute;top:12px;left:12px;background:var(--p);color:#fff;font-weight:800;font-size:13px;padding:4px 10px;border-radius:99px;z-index:2}
+.card .btn{width:100%;margin-top:12px;text-align:center;padding:11px}
+.more{text-align:center;margin-top:34px}
+/* about / contact */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;align-items:center}
+.quote{font-size:clamp(20px,2.6vw,30px);line-height:1.4;border-left:4px solid var(--p);padding-left:22px}
+.vals{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.vals span{background:var(--card);border:1px solid #ffffff14;padding:8px 16px;border-radius:99px;font-size:14px;transition:.3s}.vals span:hover{background:var(--p);transform:translateY(-4px)}
+.cts{display:grid;gap:14px}
+.ct{display:flex;gap:16px;align-items:center;background:var(--card);border:1px solid #ffffff12;border-radius:18px;padding:18px 22px;transition:.3s}
+.ct:hover{transform:translateX(10px);border-color:var(--c)}.ct i{font-size:28px;font-style:normal}.ct small{color:var(--m);display:block}
+form{display:grid;gap:12px}
+input,textarea{background:#ffffff0d;border:1px solid #ffffff1f;border-radius:14px;color:var(--t);padding:14px;font:inherit;outline:0;transition:.25s}
+input:focus,textarea:focus{border-color:var(--p);box-shadow:0 0 0 4px #e54e8833}
+footer{padding:36px 5vw;border-top:1px solid #ffffff14;color:var(--m);font-size:13px;text-align:center}
+.wa{position:fixed;right:20px;bottom:20px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;font-size:28px;box-shadow:0 8px 24px #25d36688;animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 16px #25d36600}}
+#toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,120px);background:var(--c);color:#06121a;font-weight:800;padding:12px 24px;border-radius:99px;z-index:80;transition:.4s}#toast.on{transform:translate(-50%,0)}
+@media(max-width:700px){header{flex-wrap:wrap;gap:8px}nav{margin:0;width:100%;overflow-x:auto}.cap{bottom:18%}.dots{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div class="wipe" id="wipe">🎮</div>
+<header>
+  <div class="logo" onclick="go('home')">ALB<b>GAMES</b></div>
+  <nav id="nav">
+    <button data-p="home" class="on">Início</button>
+    <button data-p="loja">Loja</button>
+    <button data-p="sobre">Quem somos</button>
+    <button data-p="contato">Contato</button>
+  </nav>
+</header>
+
+<main>
+<!-- INÍCIO -->
+<div class="page on" id="home">
+  <div class="hero" id="hero"></div>
+  <div class="mq"><div id="mq"></div></div>
+  <section>
+    <div class="stats rv">
+      <div class="stat"><b data-n="11">0</b><span>parcelas sem juros*</span></div>
+      <div class="stat"><b data-n="73">0</b><span>% OFF nas ofertas</span></div>
+      <div class="stat"><b data-n="15">0</b><span>categorias de games</span></div>
+      <div class="stat"><b data-n="2500">0</b><span>jogos nos HDs de PS2</span></div>
+    </div>
+  </section>
+  <section>
+    <h2 class="rv">Mais <em>vendidos</em></h2><p class="sub rv">Os queridinhos da galera, com preço de oferta.</p>
+    <div class="grid" id="top"></div>
+    <div class="more rv"><button class="btn" onclick="go('loja')">Ver toda a loja</button></div>
+  </section>
+</div>
+
+<!-- LOJA -->
+<div class="page" id="loja">
+  <section>
+    <h2 class="rv">Nossa <em>loja</em></h2><p class="sub rv">Escolha a fase: cada categoria carrega uma nova leva de produtos.</p>
+    <div class="tabs rv" id="tabs"></div>
+    <div class="grid" id="shop"></div>
+  </section>
+</div>
+
+<!-- QUEM SOMOS -->
+<div class="page" id="sobre">
+  <section>
+    <div class="two">
+      <div class="rv">
+        <h2>Quem <em>somos</em></h2>
+        <p class="quote">Nossa empresa tem como objetivo realizar sonhos, visando sempre sua diversão.</p>
+        <div class="vals"><span>Bom atendimento</span><span>Cortesia</span><span>Bons preços</span><span>Honestidade</span><span>Sinceridade</span><span>Apresentação</span></div>
+        <p class="sub" style="margin-top:20px">São os nossos pontos fortes, visando a fidelização de clientes e amigos.</p>
+      </div>
+      <div class="rv"><img id="aboutImg" alt="ALB Games" style="width:100%;border-radius:24px;box-shadow:0 20px 60px #e54e8855"></div>
+    </div>
+  </section>
+</div>
+
+<!-- CONTATO -->
+<div class="page" id="contato">
+  <section>
+    <h2 class="rv">Fale <em>conosco</em></h2><p class="sub rv">Tire dúvidas, peça orçamento de manutenção ou consulte um produto.</p>
+    <div class="two">
+      <div class="cts rv">
+        <a class="ct" href="tel:+551129259009"><i>📞</i><div><small>Telefone</small>(11) 2925-9009</div></a>
+        <a class="ct" href="https://wa.me/5511974239693?text=Vim%20do%20site%20ALB%20Games." target="_blank" rel="noopener"><i>💬</i><div><small>WhatsApp</small>(11) 97423-9693</div></a>
+        <a class="ct" href="mailto:contato@albgames.com.br"><i>✉️</i><div><small>E-mail</small>contato@albgames.com.br</div></a>
+        <a class="ct" href="https://instagram.com/albgames_acessorios/" target="_blank" rel="noopener"><i>📸</i><div><small>Instagram</small>@albgames_acessorios</div></a>
+      </div>
+      <form class="rv" id="f">
+        <input id="fn" placeholder="Seu nome" required>
+        <input id="fe" type="email" placeholder="Seu e-mail" required>
+        <textarea id="fm" rows="5" placeholder="Sua mensagem" required></textarea>
+        <button class="btn" type="submit">Enviar pelo WhatsApp</button>
+      </form>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>ALB GAMES COMERCIO E REPRESENTACAO LTDA · CNPJ 53.327.263/0001-76 · © 2026 Todos os direitos reservados<br>*Condições de parcelamento conforme o produto.</footer>
+<a class="wa" href="https://wa.me/5511974239693?text=Vim%20do%20site%20ALB%20Games." target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+<div id="toast"></div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const SITE='https://www.albgames.com.br/',PI='https://cdn.awsli.com.br/300x300/2773/2773443/produto/',BI='https://cdn.awsli.com.br/1920x1920/2773/2773443/banner/';
+// [categoria, nome, preço, preço antigo, imagem, link]
+const P=[
+['Consoles','PS4 Pro 4K 1TB',2390,3290,'304183359/ps4-pro--ze9vs6pt5y.jpg','none-304183359'],
+['Consoles','Nintendo Switch V1 destravado 128GB',2290,3190,'304197013/switvh-v2--vavf9u54wn.jpg','nintendo-switch-v2-32gb'],
+['Consoles','Xbox One S 500GB',1590.9,1990,'304166533/one-s-caixa-gr81n2c4u1.jpg','xbox-one-s-500gb'],
+['PS3','God of War Saga - PS3',259.9,279.9,'372510309/imagem-do-whatsapp-de-2025-09-23---s--16-52-38_53dc40cf-uma2esf90p.jpg','y38u98m7l-god-of-war-origins-collection-ps3-original'],
+['PS3','Bioshock - PS3',89.9,109.9,'357802442/img-20250613-wa0011-pxb22lfbra.jpg','bioshock-ps3-original'],
+['PS4','Spider-Man: Miles Morales - PS4',259.9,279.9,'401201665/12ee9240cb774fe4aa6d2daa142a00b3-1yu9u5yckg.jpeg','6fn1scy1k-/spider-man-miles-morales-ps4-original'],
+['PS4','The Last of Us Parte 2 - PS4',259.9,279.9,'398700512/whatsapp-image-2026-02-10-at-11-13-28-yegyjupupv.jpeg','3vrhvyugs-/the-last-of-us-parte-2-ps4-original'],
+['PS4','God of War 3 Remastered - PS4',129.9,140.9,'401645180/077b89e6a7704d14965f77329f2df471-1cubmck4cc.jpeg','6t1dh8iod-/god-of-war-3-remastered-ps4-original'],
+['Xbox One','Hitman: Entre no Mundo dos Assassinos',99.9,119.9,'403756318/4f58aca2c0944692a8da4ba1c7a40da5-lrq8u76mqh.jpeg','mrtf0bq9o-hitman-2-xbox-oneseries-x-original'],
+['Xbox One','Assassin\'s Creed Odyssey',139.9,149.9,'403755478/d3aeb3b15a894e61b7ec3e0d5c514300-4qrarpadej.jpeg','xrcfdcdb8-assassins-creed-odyssey-ps4-original'],
+['Xbox 360','Fallout 3 - Xbox 360',259.9,309.9,'403199415/6f78c98930544dc4a3d45ad9fc177960-27svmzwjxt.jpeg','doaq47oza-fallout-new-vegas-xbox-360-original'],
+['Xbox 360','Counter Strike Xbox Classic/360',149.9,549.9,'304132308/couter-strike-549ee9rchk.jpg','couter-strike-xbox360-original'],
+['Acessórios','HD 500GB para PS2 com +2500 jogos',289.9,329.9,'341778197/hd-canva-jwma6nmoqt.png','hd-de-500gb-para-ps2-com-2500-jogos-memory-card-com-opl'],
+['Acessórios','HD cheio de jogos para Xbox 360',359.9,399.9,'392440377/imgem-hd-exploit-celuar-de-pe-ixrdbvcxxh.png','hd-cheio-de-jogos-para-xbox-360-exploit-nao-precisa-de-destrave'],
+['Controles','Controle PS5 Original',549.9,599.9,'304209871/controle-ps52222-ctw047eypw.jpg','controle-ps5-orginal'],
+['Controles','Controle Xbox Series S/X Preto',539.9,599.9,'304212772/controle-gmps92h9x8.jpg','controle-para-xbox-series-sx-preto']
+];
+const CATS=['Todos','Consoles','PS3','PS4','Xbox One','Xbox 360','Acessórios','Controles'];
+// [imagem, kicker, título (span = destaque), página/categoria]
+const S=[
+['tudo-para-sua-divers-o-lw1r1280lg.jpg','ALB Games','Tudo para a sua <span>diversão</span>','Todos'],
+['jogos-90-pepw4uibcq.jpg','Jogos originais','Seu próximo <span>level up</span>','PS4'],
+['controles-90-fmjcmdc3d4.jpg','Controles','Jogue com <span>precisão</span>','Controles'],
+['acessorios-90-qxdgvpvnl4.jpg','Acessórios','Monte seu <span>setup</span>','Acessórios'],
+['manuten-o-90-v1nltlu7no.jpg','Manutenção','Seu console <span>como novo</span>','contato']
+];
+const R=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const card=(p,i)=>{const off=Math.round((1-p[2]/p[3])*100);return `<article class="card" style="animation-delay:${i*70}ms"><span class="off">-${off}%</span><a class="im" href="${SITE+p[5]}" target="_blank" rel="noopener"><img loading="lazy" src="${PI+p[4]}" alt="${p[1]}"></a><div class="bd"><h3>${p[1]}</h3><div class="old">${R(p[3])}</div><div class="pr">${R(p[2])}<small>ou até 11x no cartão</small></div><a class="btn" href="${SITE+p[5]}" target="_blank" rel="noopener">Comprar</a></div></article>`};
+
+// HERO
+$('#hero').innerHTML=S.map((s,i)=>`<div class="sl ${i?'':'on'}"><img src="${BI+s[0]}" alt="${s[1]}"></div>`).join('')+
+ `<div class="cap"><small id="ck"></small><h1 id="ct"></h1><button class="btn" id="cb">Ver agora</button><button class="btn g" onclick="go('contato')">Falar com a gente</button></div><div class="dots">${S.map((_,i)=>`<i data-i="${i}"></i>`).join('')}</div>`;
+let cur=0,timer;
+function slide(i){cur=(i+S.length)%S.length;$$('.sl').forEach((e,k)=>e.classList.toggle('on',k==cur));$$('.dots i').forEach((e,k)=>e.classList.toggle('on',k==cur));
+ const c=$('.cap');c.style.opacity=0;c.style.transform='translateY(20px)';setTimeout(()=>{$('#ck').textContent=S[cur][1];$('#ct').innerHTML=S[cur][2];c.style.transition='.6s';c.style.opacity=1;c.style.transform='none'},300);
+ clearInterval(timer);timer=setInterval(()=>slide(cur+1),5500)}
+$('#cb').onclick=()=>{const t=S[cur][3];t=='contato'?go('contato'):shopCat(t)};
+$$('.dots i').forEach(d=>d.onclick=()=>slide(+d.dataset.i));slide(0);
+addEventListener('scroll',()=>{const y=scrollY;$('#bar').style.width=(y/(document.body.scrollHeight-innerHeight)*100)+'%';
+ const h=$('#hero');if(y<innerHeight)$$('.sl img').forEach(i=>i.style.marginTop=(-y*.15)+'px')});
+
+// MARQUEE
+const mqt='PLAYSTATION · XBOX · NINTENDO · PS2 · PS3 · PS4 · PS5 · JOGOS RAROS · RETRÔ · CONTROLES · ACESSÓRIOS · MANUTENÇÃO · '.split(' · ').filter(Boolean);
+$('#mq').innerHTML=[...mqt,...mqt,...mqt,...mqt].map(t=>`<span>${t}</span>`).join('');
+
+// LOJA
+$('#tabs').innerHTML=CATS.map((c,i)=>`<button class="${i?'':'on'}">${c}</button>`).join('');
+function render(cat,fromTab){
+ const l=cat=='Todos'?P:P.filter(p=>p[0]==cat);$('#shop').innerHTML=l.map(card).join('');tilt('#shop');
+ $$('#tabs button').forEach(b=>b.classList.toggle('on',b.textContent==cat));
+ if(fromTab)toast('🎯 '+cat+': '+l.length+' produtos carregados');}
+$$('#tabs button').forEach(b=>b.onclick=()=>render(b.textContent,1));
+function shopCat(c){go('loja',()=>render(c))}
+$('#top').innerHTML=P.filter((_,i)=>[5,8,10,11,14,0,6,3].includes(i)).map(card).join('');tilt('#top');
+
+// tilt 3D nos cards
+function tilt(sel){$$(sel+' .card').forEach(c=>{c.onmousemove=e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.setProperty('--ry',x*10+'deg');c.style.setProperty('--rx',-y*10+'deg')};c.onmouseleave=()=>{c.style.setProperty('--ry','0deg');c.style.setProperty('--rx','0deg')}})}
+
+// sobre / contato
+$('#aboutImg').src=BI+S[0][0];
+$('#f').onsubmit=e=>{e.preventDefault();const t=`Olá! Sou ${$('#fn').value} (${$('#fe').value}). ${$('#fm').value}`;open('https://wa.me/5511974239693?text='+encodeURIComponent(t),'_blank');toast('🚀 Mensagem pronta no WhatsApp!')};
+
+// navegação entre abas com transição
+let busy=0;
+function go(p,cb){
+ if(busy)return;const now=$('.page.on').id;if(now==p){cb&&cb();return}
+ busy=1;const w=$('#wipe');w.classList.remove('run');void w.offsetWidth;w.classList.add('run');
+ setTimeout(()=>{$$('.page').forEach(e=>e.classList.toggle('on',e.id==p));$$('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.p==p));scrollTo(0,0);cb&&cb();observe();counters()},400);
+ setTimeout(()=>busy=0,850)}
+$$('#nav button').forEach(b=>b.onclick=()=>go(b.dataset.p));
+
+// revelar ao rolar + contadores
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+function observe(){$$('.page.on .rv').forEach(e=>{e.classList.remove('in');io.observe(e)});$$('.page.on .grid').forEach(g=>{g.classList.add('rv');g.classList.remove('in');io.observe(g)})}
+function counters(){$$('.page.on [data-n]').forEach(el=>{const n=+el.dataset.n,t0=performance.now();(function f(t){const k=Math.min((t-t0)/1400,1);el.textContent=Math.round(n*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)})(t0)})}
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('on'),2200)}
+observe();setTimeout(counters,300);
+</script>
+</body>
+</html>
